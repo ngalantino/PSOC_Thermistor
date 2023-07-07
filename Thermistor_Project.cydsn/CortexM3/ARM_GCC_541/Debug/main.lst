@@ -1,0 +1,1135 @@
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "math.h"  // Math functions
+  14:main.c        **** #include "float.h" // Floating point routines
+  15:main.c        **** 
+  16:main.c        **** uint8 count_1;
+  17:main.c        **** uint32 loop_counter, LCD_write_counter, thermistor_R;
+  18:main.c        **** uint16 R_1_result, thermistor_result;
+  19:main.c        **** int16 thermistor_mV, R_1_mV, temperature;
+  20:main.c        **** float R_1_result_f, R_1_mV_f, thermistor_mV_f, ratio_f, voltage_f;
+  21:main.c        **** float thermistor_RA_f, thermistor_RB_f;
+  22:main.c        **** float current_mA_f, temperature_K_f;
+  23:main.c        **** 
+  24:main.c        **** int main(void)
+  25:main.c        **** {
+  28              		.loc 1 25 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 2
+
+
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  26:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 26 0
+  38              		.syntax unified
+  39              	@ 26 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  27:main.c        ****     
+  28:main.c        ****     ADC_DelSig_1_Start(); // Power up ADC
+  42              		.loc 1 28 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 FFF7FEFF 		bl	ADC_DelSig_1_Start
+  46              	.LVL0:
+  29:main.c        ****     AMux_1_Start(); // Power up MUX
+  47              		.loc 1 29 0
+  48 0008 FFF7FEFF 		bl	AMux_1_Start
+  49              	.LVL1:
+  30:main.c        ****     
+  31:main.c        ****     
+  32:main.c        **** 
+  33:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  34:main.c        ****     LCD_Char_1_Start(); 
+  50              		.loc 1 34 0
+  51 000c FFF7FEFF 		bl	LCD_Char_1_Start
+  52              	.LVL2:
+  35:main.c        ****     LCD_Char_1_Position(0, 0);
+  53              		.loc 1 35 0
+  54 0010 0021     		movs	r1, #0
+  55 0012 0846     		mov	r0, r1
+  56 0014 FFF7FEFF 		bl	LCD_Char_1_Position
+  57              	.LVL3:
+  36:main.c        ****     LCD_Char_1_PrintString("Thermistor Test");
+  58              		.loc 1 36 0
+  59 0018 0F48     		ldr	r0, .L4
+  60 001a FFF7FEFF 		bl	LCD_Char_1_PrintString
+  61              	.LVL4:
+  62              	.L2:
+  37:main.c        ****     
+  38:main.c        ****     while(1)
+  39:main.c        ****     {
+  40:main.c        ****         Pin_1_Write(1);
+  63              		.loc 1 40 0 discriminator 1
+  64 001e 0120     		movs	r0, #1
+  65 0020 FFF7FEFF 		bl	Pin_1_Write
+  66              	.LVL5:
+  41:main.c        ****         
+  42:main.c        ****         loop_counter++;
+  67              		.loc 1 42 0 discriminator 1
+  68 0024 0D4C     		ldr	r4, .L4+4
+  69 0026 2368     		ldr	r3, [r4]
+  70 0028 0133     		adds	r3, r3, #1
+  71 002a 2360     		str	r3, [r4]
+  43:main.c        ****         LCD_Char_1_Position(1, 1);
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 3
+
+
+  72              		.loc 1 43 0 discriminator 1
+  73 002c 0121     		movs	r1, #1
+  74 002e 0846     		mov	r0, r1
+  75 0030 FFF7FEFF 		bl	LCD_Char_1_Position
+  76              	.LVL6:
+  44:main.c        ****         LCD_Char_1_PrintString("                ");
+  77              		.loc 1 44 0 discriminator 1
+  78 0034 0A48     		ldr	r0, .L4+8
+  79 0036 FFF7FEFF 		bl	LCD_Char_1_PrintString
+  80              	.LVL7:
+  45:main.c        ****         LCD_Char_1_Position(1, 6);
+  81              		.loc 1 45 0 discriminator 1
+  82 003a 0621     		movs	r1, #6
+  83 003c 0120     		movs	r0, #1
+  84 003e FFF7FEFF 		bl	LCD_Char_1_Position
+  85              	.LVL8:
+  46:main.c        ****         LCD_Char_1_PrintU32Number(loop_counter);
+  86              		.loc 1 46 0 discriminator 1
+  87 0042 2068     		ldr	r0, [r4]
+  88 0044 FFF7FEFF 		bl	LCD_Char_1_PrintU32Number
+  89              	.LVL9:
+  47:main.c        ****         CyDelay(250);
+  90              		.loc 1 47 0 discriminator 1
+  91 0048 FA20     		movs	r0, #250
+  92 004a FFF7FEFF 		bl	CyDelay
+  93              	.LVL10:
+  48:main.c        ****         
+  49:main.c        ****         Pin_1_Write(0);
+  94              		.loc 1 49 0 discriminator 1
+  95 004e 0020     		movs	r0, #0
+  96 0050 FFF7FEFF 		bl	Pin_1_Write
+  97              	.LVL11:
+  98 0054 E3E7     		b	.L2
+  99              	.L5:
+ 100 0056 00BF     		.align	2
+ 101              	.L4:
+ 102 0058 00000000 		.word	.LC0
+ 103 005c 00000000 		.word	loop_counter
+ 104 0060 10000000 		.word	.LC1
+ 105              		.cfi_endproc
+ 106              	.LFE63:
+ 107              		.size	main, .-main
+ 108              		.comm	temperature_K_f,4,4
+ 109              		.comm	current_mA_f,4,4
+ 110              		.comm	thermistor_RB_f,4,4
+ 111              		.comm	thermistor_RA_f,4,4
+ 112              		.comm	voltage_f,4,4
+ 113              		.comm	ratio_f,4,4
+ 114              		.comm	thermistor_mV_f,4,4
+ 115              		.comm	R_1_mV_f,4,4
+ 116              		.comm	R_1_result_f,4,4
+ 117              		.comm	temperature,2,2
+ 118              		.comm	R_1_mV,2,2
+ 119              		.comm	thermistor_mV,2,2
+ 120              		.comm	thermistor_result,2,2
+ 121              		.comm	R_1_result,2,2
+ 122              		.comm	thermistor_R,4,4
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 4
+
+
+ 123              		.comm	LCD_write_counter,4,4
+ 124              		.comm	loop_counter,4,4
+ 125              		.comm	count_1,1,1
+ 126              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 127              		.align	2
+ 128              	.LC0:
+ 129 0000 54686572 		.ascii	"Thermistor Test\000"
+ 129      6D697374 
+ 129      6F722054 
+ 129      65737400 
+ 130              	.LC1:
+ 131 0010 20202020 		.ascii	"                \000"
+ 131      20202020 
+ 131      20202020 
+ 131      20202020 
+ 131      00
+ 132              		.text
+ 133              	.Letext0:
+ 134              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 135              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 136              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 137              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 138              		.file 6 "Generated_Source\\PSoC5/ADC_DelSig_1.h"
+ 139              		.file 7 "Generated_Source\\PSoC5/AMux_1.h"
+ 140              		.file 8 "Generated_Source\\PSoC5/LCD_Char_1.h"
+ 141              		.file 9 "Generated_Source\\PSoC5/Pin_1.h"
+ 142              		.file 10 "Generated_Source\\PSoC5/CyLib.h"
+ 143              		.section	.debug_info,"",%progbits
+ 144              	.Ldebug_info0:
+ 145 0000 56030000 		.4byte	0x356
+ 146 0004 0400     		.2byte	0x4
+ 147 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 148 000a 04       		.byte	0x4
+ 149 000b 01       		.uleb128 0x1
+ 150 000c B8000000 		.4byte	.LASF47
+ 151 0010 0C       		.byte	0xc
+ 152 0011 40020000 		.4byte	.LASF48
+ 153 0015 EF020000 		.4byte	.LASF49
+ 154 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 155 001d 00000000 		.4byte	0
+ 156 0021 00000000 		.4byte	.Ldebug_line0
+ 157 0025 02       		.uleb128 0x2
+ 158 0026 01       		.byte	0x1
+ 159 0027 06       		.byte	0x6
+ 160 0028 CF020000 		.4byte	.LASF0
+ 161 002c 02       		.uleb128 0x2
+ 162 002d 01       		.byte	0x1
+ 163 002e 08       		.byte	0x8
+ 164 002f 8E010000 		.4byte	.LASF1
+ 165 0033 02       		.uleb128 0x2
+ 166 0034 02       		.byte	0x2
+ 167 0035 05       		.byte	0x5
+ 168 0036 6D020000 		.4byte	.LASF2
+ 169 003a 02       		.uleb128 0x2
+ 170 003b 02       		.byte	0x2
+ 171 003c 07       		.byte	0x7
+ 172 003d 5E010000 		.4byte	.LASF3
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 5
+
+
+ 173 0041 03       		.uleb128 0x3
+ 174 0042 4E000000 		.4byte	.LASF9
+ 175 0046 02       		.byte	0x2
+ 176 0047 3F       		.byte	0x3f
+ 177 0048 4C000000 		.4byte	0x4c
+ 178 004c 02       		.uleb128 0x2
+ 179 004d 04       		.byte	0x4
+ 180 004e 05       		.byte	0x5
+ 181 004f A3020000 		.4byte	.LASF4
+ 182 0053 02       		.uleb128 0x2
+ 183 0054 04       		.byte	0x4
+ 184 0055 07       		.byte	0x7
+ 185 0056 4C010000 		.4byte	.LASF5
+ 186 005a 02       		.uleb128 0x2
+ 187 005b 08       		.byte	0x8
+ 188 005c 05       		.byte	0x5
+ 189 005d 00000000 		.4byte	.LASF6
+ 190 0061 02       		.uleb128 0x2
+ 191 0062 08       		.byte	0x8
+ 192 0063 07       		.byte	0x7
+ 193 0064 8A000000 		.4byte	.LASF7
+ 194 0068 04       		.uleb128 0x4
+ 195 0069 04       		.byte	0x4
+ 196 006a 05       		.byte	0x5
+ 197 006b 696E7400 		.ascii	"int\000"
+ 198 006f 02       		.uleb128 0x2
+ 199 0070 04       		.byte	0x4
+ 200 0071 07       		.byte	0x7
+ 201 0072 01020000 		.4byte	.LASF8
+ 202 0076 03       		.uleb128 0x3
+ 203 0077 28020000 		.4byte	.LASF10
+ 204 007b 03       		.byte	0x3
+ 205 007c 2C       		.byte	0x2c
+ 206 007d 41000000 		.4byte	0x41
+ 207 0081 05       		.uleb128 0x5
+ 208 0082 7F020000 		.4byte	.LASF11
+ 209 0086 04       		.byte	0x4
+ 210 0087 E801     		.2byte	0x1e8
+ 211 0089 2C000000 		.4byte	0x2c
+ 212 008d 05       		.uleb128 0x5
+ 213 008e BC010000 		.4byte	.LASF12
+ 214 0092 04       		.byte	0x4
+ 215 0093 E901     		.2byte	0x1e9
+ 216 0095 3A000000 		.4byte	0x3a
+ 217 0099 05       		.uleb128 0x5
+ 218 009a D0010000 		.4byte	.LASF13
+ 219 009e 04       		.byte	0x4
+ 220 009f EA01     		.2byte	0x1ea
+ 221 00a1 53000000 		.4byte	0x53
+ 222 00a5 05       		.uleb128 0x5
+ 223 00a6 46010000 		.4byte	.LASF14
+ 224 00aa 04       		.byte	0x4
+ 225 00ab EC01     		.2byte	0x1ec
+ 226 00ad 33000000 		.4byte	0x33
+ 227 00b1 02       		.uleb128 0x2
+ 228 00b2 04       		.byte	0x4
+ 229 00b3 04       		.byte	0x4
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 6
+
+
+ 230 00b4 C9020000 		.4byte	.LASF15
+ 231 00b8 02       		.uleb128 0x2
+ 232 00b9 08       		.byte	0x8
+ 233 00ba 04       		.byte	0x4
+ 234 00bb 65000000 		.4byte	.LASF16
+ 235 00bf 02       		.uleb128 0x2
+ 236 00c0 01       		.byte	0x1
+ 237 00c1 08       		.byte	0x8
+ 238 00c2 47020000 		.4byte	.LASF17
+ 239 00c6 02       		.uleb128 0x2
+ 240 00c7 08       		.byte	0x8
+ 241 00c8 04       		.byte	0x4
+ 242 00c9 BD020000 		.4byte	.LASF18
+ 243 00cd 02       		.uleb128 0x2
+ 244 00ce 04       		.byte	0x4
+ 245 00cf 07       		.byte	0x7
+ 246 00d0 30020000 		.4byte	.LASF19
+ 247 00d4 06       		.uleb128 0x6
+ 248 00d5 D7010000 		.4byte	.LASF50
+ 249 00d9 01       		.byte	0x1
+ 250 00da 18       		.byte	0x18
+ 251 00db 68000000 		.4byte	0x68
+ 252 00df 00000000 		.4byte	.LFB63
+ 253 00e3 64000000 		.4byte	.LFE63-.LFB63
+ 254 00e7 01       		.uleb128 0x1
+ 255 00e8 9C       		.byte	0x9c
+ 256 00e9 BE010000 		.4byte	0x1be
+ 257 00ed 07       		.uleb128 0x7
+ 258 00ee 08000000 		.4byte	.LVL0
+ 259 00f2 01030000 		.4byte	0x301
+ 260 00f6 07       		.uleb128 0x7
+ 261 00f7 0C000000 		.4byte	.LVL1
+ 262 00fb 0C030000 		.4byte	0x30c
+ 263 00ff 07       		.uleb128 0x7
+ 264 0100 10000000 		.4byte	.LVL2
+ 265 0104 17030000 		.4byte	0x317
+ 266 0108 08       		.uleb128 0x8
+ 267 0109 18000000 		.4byte	.LVL3
+ 268 010d 22030000 		.4byte	0x322
+ 269 0111 20010000 		.4byte	0x120
+ 270 0115 09       		.uleb128 0x9
+ 271 0116 01       		.uleb128 0x1
+ 272 0117 50       		.byte	0x50
+ 273 0118 01       		.uleb128 0x1
+ 274 0119 30       		.byte	0x30
+ 275 011a 09       		.uleb128 0x9
+ 276 011b 01       		.uleb128 0x1
+ 277 011c 51       		.byte	0x51
+ 278 011d 01       		.uleb128 0x1
+ 279 011e 30       		.byte	0x30
+ 280 011f 00       		.byte	0
+ 281 0120 08       		.uleb128 0x8
+ 282 0121 1E000000 		.4byte	.LVL4
+ 283 0125 2D030000 		.4byte	0x32d
+ 284 0129 37010000 		.4byte	0x137
+ 285 012d 09       		.uleb128 0x9
+ 286 012e 01       		.uleb128 0x1
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 7
+
+
+ 287 012f 50       		.byte	0x50
+ 288 0130 05       		.uleb128 0x5
+ 289 0131 03       		.byte	0x3
+ 290 0132 00000000 		.4byte	.LC0
+ 291 0136 00       		.byte	0
+ 292 0137 08       		.uleb128 0x8
+ 293 0138 24000000 		.4byte	.LVL5
+ 294 013c 38030000 		.4byte	0x338
+ 295 0140 4A010000 		.4byte	0x14a
+ 296 0144 09       		.uleb128 0x9
+ 297 0145 01       		.uleb128 0x1
+ 298 0146 50       		.byte	0x50
+ 299 0147 01       		.uleb128 0x1
+ 300 0148 31       		.byte	0x31
+ 301 0149 00       		.byte	0
+ 302 014a 08       		.uleb128 0x8
+ 303 014b 34000000 		.4byte	.LVL6
+ 304 014f 22030000 		.4byte	0x322
+ 305 0153 62010000 		.4byte	0x162
+ 306 0157 09       		.uleb128 0x9
+ 307 0158 01       		.uleb128 0x1
+ 308 0159 50       		.byte	0x50
+ 309 015a 01       		.uleb128 0x1
+ 310 015b 31       		.byte	0x31
+ 311 015c 09       		.uleb128 0x9
+ 312 015d 01       		.uleb128 0x1
+ 313 015e 51       		.byte	0x51
+ 314 015f 01       		.uleb128 0x1
+ 315 0160 31       		.byte	0x31
+ 316 0161 00       		.byte	0
+ 317 0162 08       		.uleb128 0x8
+ 318 0163 3A000000 		.4byte	.LVL7
+ 319 0167 2D030000 		.4byte	0x32d
+ 320 016b 79010000 		.4byte	0x179
+ 321 016f 09       		.uleb128 0x9
+ 322 0170 01       		.uleb128 0x1
+ 323 0171 50       		.byte	0x50
+ 324 0172 05       		.uleb128 0x5
+ 325 0173 03       		.byte	0x3
+ 326 0174 10000000 		.4byte	.LC1
+ 327 0178 00       		.byte	0
+ 328 0179 08       		.uleb128 0x8
+ 329 017a 42000000 		.4byte	.LVL8
+ 330 017e 22030000 		.4byte	0x322
+ 331 0182 91010000 		.4byte	0x191
+ 332 0186 09       		.uleb128 0x9
+ 333 0187 01       		.uleb128 0x1
+ 334 0188 50       		.byte	0x50
+ 335 0189 01       		.uleb128 0x1
+ 336 018a 31       		.byte	0x31
+ 337 018b 09       		.uleb128 0x9
+ 338 018c 01       		.uleb128 0x1
+ 339 018d 51       		.byte	0x51
+ 340 018e 01       		.uleb128 0x1
+ 341 018f 36       		.byte	0x36
+ 342 0190 00       		.byte	0
+ 343 0191 07       		.uleb128 0x7
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 8
+
+
+ 344 0192 48000000 		.4byte	.LVL9
+ 345 0196 43030000 		.4byte	0x343
+ 346 019a 08       		.uleb128 0x8
+ 347 019b 4E000000 		.4byte	.LVL10
+ 348 019f 4E030000 		.4byte	0x34e
+ 349 01a3 AE010000 		.4byte	0x1ae
+ 350 01a7 09       		.uleb128 0x9
+ 351 01a8 01       		.uleb128 0x1
+ 352 01a9 50       		.byte	0x50
+ 353 01aa 02       		.uleb128 0x2
+ 354 01ab 08       		.byte	0x8
+ 355 01ac FA       		.byte	0xfa
+ 356 01ad 00       		.byte	0
+ 357 01ae 0A       		.uleb128 0xa
+ 358 01af 54000000 		.4byte	.LVL11
+ 359 01b3 38030000 		.4byte	0x338
+ 360 01b7 09       		.uleb128 0x9
+ 361 01b8 01       		.uleb128 0x1
+ 362 01b9 50       		.byte	0x50
+ 363 01ba 01       		.uleb128 0x1
+ 364 01bb 30       		.byte	0x30
+ 365 01bc 00       		.byte	0
+ 366 01bd 00       		.byte	0
+ 367 01be 0B       		.uleb128 0xb
+ 368 01bf 81010000 		.4byte	.LASF20
+ 369 01c3 05       		.byte	0x5
+ 370 01c4 1207     		.2byte	0x712
+ 371 01c6 CA010000 		.4byte	0x1ca
+ 372 01ca 0C       		.uleb128 0xc
+ 373 01cb 76000000 		.4byte	0x76
+ 374 01cf 0D       		.uleb128 0xd
+ 375 01d0 9C010000 		.4byte	.LASF21
+ 376 01d4 01       		.byte	0x1
+ 377 01d5 10       		.byte	0x10
+ 378 01d6 81000000 		.4byte	0x81
+ 379 01da 05       		.uleb128 0x5
+ 380 01db 03       		.byte	0x3
+ 381 01dc 00000000 		.4byte	count_1
+ 382 01e0 0D       		.uleb128 0xd
+ 383 01e1 0E000000 		.4byte	.LASF22
+ 384 01e5 01       		.byte	0x1
+ 385 01e6 11       		.byte	0x11
+ 386 01e7 99000000 		.4byte	0x99
+ 387 01eb 05       		.uleb128 0x5
+ 388 01ec 03       		.byte	0x3
+ 389 01ed 00000000 		.4byte	loop_counter
+ 390 01f1 0D       		.uleb128 0xd
+ 391 01f2 DC010000 		.4byte	.LASF23
+ 392 01f6 01       		.byte	0x1
+ 393 01f7 11       		.byte	0x11
+ 394 01f8 99000000 		.4byte	0x99
+ 395 01fc 05       		.uleb128 0x5
+ 396 01fd 03       		.byte	0x3
+ 397 01fe 00000000 		.4byte	LCD_write_counter
+ 398 0202 0D       		.uleb128 0xd
+ 399 0203 60020000 		.4byte	.LASF24
+ 400 0207 01       		.byte	0x1
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 9
+
+
+ 401 0208 11       		.byte	0x11
+ 402 0209 99000000 		.4byte	0x99
+ 403 020d 05       		.uleb128 0x5
+ 404 020e 03       		.byte	0x3
+ 405 020f 00000000 		.4byte	thermistor_R
+ 406 0213 0D       		.uleb128 0xd
+ 407 0214 A4010000 		.4byte	.LASF25
+ 408 0218 01       		.byte	0x1
+ 409 0219 12       		.byte	0x12
+ 410 021a 8D000000 		.4byte	0x8d
+ 411 021e 05       		.uleb128 0x5
+ 412 021f 03       		.byte	0x3
+ 413 0220 00000000 		.4byte	R_1_result
+ 414 0224 0D       		.uleb128 0xd
+ 415 0225 6C000000 		.4byte	.LASF26
+ 416 0229 01       		.byte	0x1
+ 417 022a 12       		.byte	0x12
+ 418 022b 8D000000 		.4byte	0x8d
+ 419 022f 05       		.uleb128 0x5
+ 420 0230 03       		.byte	0x3
+ 421 0231 00000000 		.4byte	thermistor_result
+ 422 0235 0D       		.uleb128 0xd
+ 423 0236 95020000 		.4byte	.LASF27
+ 424 023a 01       		.byte	0x1
+ 425 023b 13       		.byte	0x13
+ 426 023c A5000000 		.4byte	0xa5
+ 427 0240 05       		.uleb128 0x5
+ 428 0241 03       		.byte	0x3
+ 429 0242 00000000 		.4byte	thermistor_mV
+ 430 0246 0D       		.uleb128 0xd
+ 431 0247 39020000 		.4byte	.LASF28
+ 432 024b 01       		.byte	0x1
+ 433 024c 13       		.byte	0x13
+ 434 024d A5000000 		.4byte	0xa5
+ 435 0251 05       		.uleb128 0x5
+ 436 0252 03       		.byte	0x3
+ 437 0253 00000000 		.4byte	R_1_mV
+ 438 0257 0D       		.uleb128 0xd
+ 439 0258 7E000000 		.4byte	.LASF29
+ 440 025c 01       		.byte	0x1
+ 441 025d 13       		.byte	0x13
+ 442 025e A5000000 		.4byte	0xa5
+ 443 0262 05       		.uleb128 0x5
+ 444 0263 03       		.byte	0x3
+ 445 0264 00000000 		.4byte	temperature
+ 446 0268 0D       		.uleb128 0xd
+ 447 0269 C3010000 		.4byte	.LASF30
+ 448 026d 01       		.byte	0x1
+ 449 026e 14       		.byte	0x14
+ 450 026f B1000000 		.4byte	0xb1
+ 451 0273 05       		.uleb128 0x5
+ 452 0274 03       		.byte	0x3
+ 453 0275 00000000 		.4byte	R_1_result_f
+ 454 0279 0D       		.uleb128 0xd
+ 455 027a 3B000000 		.4byte	.LASF31
+ 456 027e 01       		.byte	0x1
+ 457 027f 14       		.byte	0x14
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 10
+
+
+ 458 0280 B1000000 		.4byte	0xb1
+ 459 0284 05       		.uleb128 0x5
+ 460 0285 03       		.byte	0x3
+ 461 0286 00000000 		.4byte	R_1_mV_f
+ 462 028a 0D       		.uleb128 0xd
+ 463 028b 2B000000 		.4byte	.LASF32
+ 464 028f 01       		.byte	0x1
+ 465 0290 14       		.byte	0x14
+ 466 0291 B1000000 		.4byte	0xb1
+ 467 0295 05       		.uleb128 0x5
+ 468 0296 03       		.byte	0x3
+ 469 0297 00000000 		.4byte	thermistor_mV_f
+ 470 029b 0D       		.uleb128 0xd
+ 471 029c 77020000 		.4byte	.LASF33
+ 472 02a0 01       		.byte	0x1
+ 473 02a1 14       		.byte	0x14
+ 474 02a2 B1000000 		.4byte	0xb1
+ 475 02a6 05       		.uleb128 0x5
+ 476 02a7 03       		.byte	0x3
+ 477 02a8 00000000 		.4byte	ratio_f
+ 478 02ac 0D       		.uleb128 0xd
+ 479 02ad 44000000 		.4byte	.LASF34
+ 480 02b1 01       		.byte	0x1
+ 481 02b2 14       		.byte	0x14
+ 482 02b3 B1000000 		.4byte	0xb1
+ 483 02b7 05       		.uleb128 0x5
+ 484 02b8 03       		.byte	0x3
+ 485 02b9 00000000 		.4byte	voltage_f
+ 486 02bd 0D       		.uleb128 0xd
+ 487 02be 1B000000 		.4byte	.LASF35
+ 488 02c2 01       		.byte	0x1
+ 489 02c3 15       		.byte	0x15
+ 490 02c4 B1000000 		.4byte	0xb1
+ 491 02c8 05       		.uleb128 0x5
+ 492 02c9 03       		.byte	0x3
+ 493 02ca 00000000 		.4byte	thermistor_RA_f
+ 494 02ce 0D       		.uleb128 0xd
+ 495 02cf 85020000 		.4byte	.LASF36
+ 496 02d3 01       		.byte	0x1
+ 497 02d4 15       		.byte	0x15
+ 498 02d5 B1000000 		.4byte	0xb1
+ 499 02d9 05       		.uleb128 0x5
+ 500 02da 03       		.byte	0x3
+ 501 02db 00000000 		.4byte	thermistor_RB_f
+ 502 02df 0D       		.uleb128 0xd
+ 503 02e0 58000000 		.4byte	.LASF37
+ 504 02e4 01       		.byte	0x1
+ 505 02e5 16       		.byte	0x16
+ 506 02e6 B1000000 		.4byte	0xb1
+ 507 02ea 05       		.uleb128 0x5
+ 508 02eb 03       		.byte	0x3
+ 509 02ec 00000000 		.4byte	current_mA_f
+ 510 02f0 0D       		.uleb128 0xd
+ 511 02f1 71010000 		.4byte	.LASF38
+ 512 02f5 01       		.byte	0x1
+ 513 02f6 16       		.byte	0x16
+ 514 02f7 B1000000 		.4byte	0xb1
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 11
+
+
+ 515 02fb 05       		.uleb128 0x5
+ 516 02fc 03       		.byte	0x3
+ 517 02fd 00000000 		.4byte	temperature_K_f
+ 518 0301 0E       		.uleb128 0xe
+ 519 0302 EE010000 		.4byte	.LASF39
+ 520 0306 EE010000 		.4byte	.LASF39
+ 521 030a 06       		.byte	0x6
+ 522 030b 3A       		.byte	0x3a
+ 523 030c 0E       		.uleb128 0xe
+ 524 030d AF010000 		.4byte	.LASF40
+ 525 0311 AF010000 		.4byte	.LASF40
+ 526 0315 07       		.byte	0x7
+ 527 0316 25       		.byte	0x25
+ 528 0317 0E       		.uleb128 0xe
+ 529 0318 AC020000 		.4byte	.LASF41
+ 530 031c AC020000 		.4byte	.LASF41
+ 531 0320 08       		.byte	0x8
+ 532 0321 38       		.byte	0x38
+ 533 0322 0E       		.uleb128 0xe
+ 534 0323 4C020000 		.4byte	.LASF42
+ 535 0327 4C020000 		.4byte	.LASF42
+ 536 032b 08       		.byte	0x8
+ 537 032c 3D       		.byte	0x3d
+ 538 032d 0E       		.uleb128 0xe
+ 539 032e A1000000 		.4byte	.LASF43
+ 540 0332 A1000000 		.4byte	.LASF43
+ 541 0336 08       		.byte	0x8
+ 542 0337 3C       		.byte	0x3c
+ 543 0338 0E       		.uleb128 0xe
+ 544 0339 DB020000 		.4byte	.LASF44
+ 545 033d DB020000 		.4byte	.LASF44
+ 546 0341 09       		.byte	0x9
+ 547 0342 26       		.byte	0x26
+ 548 0343 0E       		.uleb128 0xe
+ 549 0344 0E020000 		.4byte	.LASF45
+ 550 0348 0E020000 		.4byte	.LASF45
+ 551 034c 08       		.byte	0x8
+ 552 034d 61       		.byte	0x61
+ 553 034e 0E       		.uleb128 0xe
+ 554 034f E7020000 		.4byte	.LASF46
+ 555 0353 E7020000 		.4byte	.LASF46
+ 556 0357 0A       		.byte	0xa
+ 557 0358 76       		.byte	0x76
+ 558 0359 00       		.byte	0
+ 559              		.section	.debug_abbrev,"",%progbits
+ 560              	.Ldebug_abbrev0:
+ 561 0000 01       		.uleb128 0x1
+ 562 0001 11       		.uleb128 0x11
+ 563 0002 01       		.byte	0x1
+ 564 0003 25       		.uleb128 0x25
+ 565 0004 0E       		.uleb128 0xe
+ 566 0005 13       		.uleb128 0x13
+ 567 0006 0B       		.uleb128 0xb
+ 568 0007 03       		.uleb128 0x3
+ 569 0008 0E       		.uleb128 0xe
+ 570 0009 1B       		.uleb128 0x1b
+ 571 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 12
+
+
+ 572 000b 55       		.uleb128 0x55
+ 573 000c 17       		.uleb128 0x17
+ 574 000d 11       		.uleb128 0x11
+ 575 000e 01       		.uleb128 0x1
+ 576 000f 10       		.uleb128 0x10
+ 577 0010 17       		.uleb128 0x17
+ 578 0011 00       		.byte	0
+ 579 0012 00       		.byte	0
+ 580 0013 02       		.uleb128 0x2
+ 581 0014 24       		.uleb128 0x24
+ 582 0015 00       		.byte	0
+ 583 0016 0B       		.uleb128 0xb
+ 584 0017 0B       		.uleb128 0xb
+ 585 0018 3E       		.uleb128 0x3e
+ 586 0019 0B       		.uleb128 0xb
+ 587 001a 03       		.uleb128 0x3
+ 588 001b 0E       		.uleb128 0xe
+ 589 001c 00       		.byte	0
+ 590 001d 00       		.byte	0
+ 591 001e 03       		.uleb128 0x3
+ 592 001f 16       		.uleb128 0x16
+ 593 0020 00       		.byte	0
+ 594 0021 03       		.uleb128 0x3
+ 595 0022 0E       		.uleb128 0xe
+ 596 0023 3A       		.uleb128 0x3a
+ 597 0024 0B       		.uleb128 0xb
+ 598 0025 3B       		.uleb128 0x3b
+ 599 0026 0B       		.uleb128 0xb
+ 600 0027 49       		.uleb128 0x49
+ 601 0028 13       		.uleb128 0x13
+ 602 0029 00       		.byte	0
+ 603 002a 00       		.byte	0
+ 604 002b 04       		.uleb128 0x4
+ 605 002c 24       		.uleb128 0x24
+ 606 002d 00       		.byte	0
+ 607 002e 0B       		.uleb128 0xb
+ 608 002f 0B       		.uleb128 0xb
+ 609 0030 3E       		.uleb128 0x3e
+ 610 0031 0B       		.uleb128 0xb
+ 611 0032 03       		.uleb128 0x3
+ 612 0033 08       		.uleb128 0x8
+ 613 0034 00       		.byte	0
+ 614 0035 00       		.byte	0
+ 615 0036 05       		.uleb128 0x5
+ 616 0037 16       		.uleb128 0x16
+ 617 0038 00       		.byte	0
+ 618 0039 03       		.uleb128 0x3
+ 619 003a 0E       		.uleb128 0xe
+ 620 003b 3A       		.uleb128 0x3a
+ 621 003c 0B       		.uleb128 0xb
+ 622 003d 3B       		.uleb128 0x3b
+ 623 003e 05       		.uleb128 0x5
+ 624 003f 49       		.uleb128 0x49
+ 625 0040 13       		.uleb128 0x13
+ 626 0041 00       		.byte	0
+ 627 0042 00       		.byte	0
+ 628 0043 06       		.uleb128 0x6
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 13
+
+
+ 629 0044 2E       		.uleb128 0x2e
+ 630 0045 01       		.byte	0x1
+ 631 0046 3F       		.uleb128 0x3f
+ 632 0047 19       		.uleb128 0x19
+ 633 0048 03       		.uleb128 0x3
+ 634 0049 0E       		.uleb128 0xe
+ 635 004a 3A       		.uleb128 0x3a
+ 636 004b 0B       		.uleb128 0xb
+ 637 004c 3B       		.uleb128 0x3b
+ 638 004d 0B       		.uleb128 0xb
+ 639 004e 27       		.uleb128 0x27
+ 640 004f 19       		.uleb128 0x19
+ 641 0050 49       		.uleb128 0x49
+ 642 0051 13       		.uleb128 0x13
+ 643 0052 8701     		.uleb128 0x87
+ 644 0054 19       		.uleb128 0x19
+ 645 0055 11       		.uleb128 0x11
+ 646 0056 01       		.uleb128 0x1
+ 647 0057 12       		.uleb128 0x12
+ 648 0058 06       		.uleb128 0x6
+ 649 0059 40       		.uleb128 0x40
+ 650 005a 18       		.uleb128 0x18
+ 651 005b 9742     		.uleb128 0x2117
+ 652 005d 19       		.uleb128 0x19
+ 653 005e 01       		.uleb128 0x1
+ 654 005f 13       		.uleb128 0x13
+ 655 0060 00       		.byte	0
+ 656 0061 00       		.byte	0
+ 657 0062 07       		.uleb128 0x7
+ 658 0063 898201   		.uleb128 0x4109
+ 659 0066 00       		.byte	0
+ 660 0067 11       		.uleb128 0x11
+ 661 0068 01       		.uleb128 0x1
+ 662 0069 31       		.uleb128 0x31
+ 663 006a 13       		.uleb128 0x13
+ 664 006b 00       		.byte	0
+ 665 006c 00       		.byte	0
+ 666 006d 08       		.uleb128 0x8
+ 667 006e 898201   		.uleb128 0x4109
+ 668 0071 01       		.byte	0x1
+ 669 0072 11       		.uleb128 0x11
+ 670 0073 01       		.uleb128 0x1
+ 671 0074 31       		.uleb128 0x31
+ 672 0075 13       		.uleb128 0x13
+ 673 0076 01       		.uleb128 0x1
+ 674 0077 13       		.uleb128 0x13
+ 675 0078 00       		.byte	0
+ 676 0079 00       		.byte	0
+ 677 007a 09       		.uleb128 0x9
+ 678 007b 8A8201   		.uleb128 0x410a
+ 679 007e 00       		.byte	0
+ 680 007f 02       		.uleb128 0x2
+ 681 0080 18       		.uleb128 0x18
+ 682 0081 9142     		.uleb128 0x2111
+ 683 0083 18       		.uleb128 0x18
+ 684 0084 00       		.byte	0
+ 685 0085 00       		.byte	0
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 14
+
+
+ 686 0086 0A       		.uleb128 0xa
+ 687 0087 898201   		.uleb128 0x4109
+ 688 008a 01       		.byte	0x1
+ 689 008b 11       		.uleb128 0x11
+ 690 008c 01       		.uleb128 0x1
+ 691 008d 31       		.uleb128 0x31
+ 692 008e 13       		.uleb128 0x13
+ 693 008f 00       		.byte	0
+ 694 0090 00       		.byte	0
+ 695 0091 0B       		.uleb128 0xb
+ 696 0092 34       		.uleb128 0x34
+ 697 0093 00       		.byte	0
+ 698 0094 03       		.uleb128 0x3
+ 699 0095 0E       		.uleb128 0xe
+ 700 0096 3A       		.uleb128 0x3a
+ 701 0097 0B       		.uleb128 0xb
+ 702 0098 3B       		.uleb128 0x3b
+ 703 0099 05       		.uleb128 0x5
+ 704 009a 49       		.uleb128 0x49
+ 705 009b 13       		.uleb128 0x13
+ 706 009c 3F       		.uleb128 0x3f
+ 707 009d 19       		.uleb128 0x19
+ 708 009e 3C       		.uleb128 0x3c
+ 709 009f 19       		.uleb128 0x19
+ 710 00a0 00       		.byte	0
+ 711 00a1 00       		.byte	0
+ 712 00a2 0C       		.uleb128 0xc
+ 713 00a3 35       		.uleb128 0x35
+ 714 00a4 00       		.byte	0
+ 715 00a5 49       		.uleb128 0x49
+ 716 00a6 13       		.uleb128 0x13
+ 717 00a7 00       		.byte	0
+ 718 00a8 00       		.byte	0
+ 719 00a9 0D       		.uleb128 0xd
+ 720 00aa 34       		.uleb128 0x34
+ 721 00ab 00       		.byte	0
+ 722 00ac 03       		.uleb128 0x3
+ 723 00ad 0E       		.uleb128 0xe
+ 724 00ae 3A       		.uleb128 0x3a
+ 725 00af 0B       		.uleb128 0xb
+ 726 00b0 3B       		.uleb128 0x3b
+ 727 00b1 0B       		.uleb128 0xb
+ 728 00b2 49       		.uleb128 0x49
+ 729 00b3 13       		.uleb128 0x13
+ 730 00b4 3F       		.uleb128 0x3f
+ 731 00b5 19       		.uleb128 0x19
+ 732 00b6 02       		.uleb128 0x2
+ 733 00b7 18       		.uleb128 0x18
+ 734 00b8 00       		.byte	0
+ 735 00b9 00       		.byte	0
+ 736 00ba 0E       		.uleb128 0xe
+ 737 00bb 2E       		.uleb128 0x2e
+ 738 00bc 00       		.byte	0
+ 739 00bd 3F       		.uleb128 0x3f
+ 740 00be 19       		.uleb128 0x19
+ 741 00bf 3C       		.uleb128 0x3c
+ 742 00c0 19       		.uleb128 0x19
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 15
+
+
+ 743 00c1 6E       		.uleb128 0x6e
+ 744 00c2 0E       		.uleb128 0xe
+ 745 00c3 03       		.uleb128 0x3
+ 746 00c4 0E       		.uleb128 0xe
+ 747 00c5 3A       		.uleb128 0x3a
+ 748 00c6 0B       		.uleb128 0xb
+ 749 00c7 3B       		.uleb128 0x3b
+ 750 00c8 0B       		.uleb128 0xb
+ 751 00c9 00       		.byte	0
+ 752 00ca 00       		.byte	0
+ 753 00cb 00       		.byte	0
+ 754              		.section	.debug_aranges,"",%progbits
+ 755 0000 1C000000 		.4byte	0x1c
+ 756 0004 0200     		.2byte	0x2
+ 757 0006 00000000 		.4byte	.Ldebug_info0
+ 758 000a 04       		.byte	0x4
+ 759 000b 00       		.byte	0
+ 760 000c 0000     		.2byte	0
+ 761 000e 0000     		.2byte	0
+ 762 0010 00000000 		.4byte	.LFB63
+ 763 0014 64000000 		.4byte	.LFE63-.LFB63
+ 764 0018 00000000 		.4byte	0
+ 765 001c 00000000 		.4byte	0
+ 766              		.section	.debug_ranges,"",%progbits
+ 767              	.Ldebug_ranges0:
+ 768 0000 00000000 		.4byte	.LFB63
+ 769 0004 64000000 		.4byte	.LFE63
+ 770 0008 00000000 		.4byte	0
+ 771 000c 00000000 		.4byte	0
+ 772              		.section	.debug_line,"",%progbits
+ 773              	.Ldebug_line0:
+ 774 0000 D3010000 		.section	.debug_str,"MS",%progbits,1
+ 774      02009001 
+ 774      00000201 
+ 774      FB0E0D00 
+ 774      01010101 
+ 775              	.LASF6:
+ 776 0000 6C6F6E67 		.ascii	"long long int\000"
+ 776      206C6F6E 
+ 776      6720696E 
+ 776      7400
+ 777              	.LASF22:
+ 778 000e 6C6F6F70 		.ascii	"loop_counter\000"
+ 778      5F636F75 
+ 778      6E746572 
+ 778      00
+ 779              	.LASF35:
+ 780 001b 74686572 		.ascii	"thermistor_RA_f\000"
+ 780      6D697374 
+ 780      6F725F52 
+ 780      415F6600 
+ 781              	.LASF32:
+ 782 002b 74686572 		.ascii	"thermistor_mV_f\000"
+ 782      6D697374 
+ 782      6F725F6D 
+ 782      565F6600 
+ 783              	.LASF31:
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 16
+
+
+ 784 003b 525F315F 		.ascii	"R_1_mV_f\000"
+ 784      6D565F66 
+ 784      00
+ 785              	.LASF34:
+ 786 0044 766F6C74 		.ascii	"voltage_f\000"
+ 786      6167655F 
+ 786      6600
+ 787              	.LASF9:
+ 788 004e 5F5F696E 		.ascii	"__int32_t\000"
+ 788      7433325F 
+ 788      7400
+ 789              	.LASF37:
+ 790 0058 63757272 		.ascii	"current_mA_f\000"
+ 790      656E745F 
+ 790      6D415F66 
+ 790      00
+ 791              	.LASF16:
+ 792 0065 646F7562 		.ascii	"double\000"
+ 792      6C6500
+ 793              	.LASF26:
+ 794 006c 74686572 		.ascii	"thermistor_result\000"
+ 794      6D697374 
+ 794      6F725F72 
+ 794      6573756C 
+ 794      7400
+ 795              	.LASF29:
+ 796 007e 74656D70 		.ascii	"temperature\000"
+ 796      65726174 
+ 796      75726500 
+ 797              	.LASF7:
+ 798 008a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 798      206C6F6E 
+ 798      6720756E 
+ 798      7369676E 
+ 798      65642069 
+ 799              	.LASF43:
+ 800 00a1 4C43445F 		.ascii	"LCD_Char_1_PrintString\000"
+ 800      43686172 
+ 800      5F315F50 
+ 800      72696E74 
+ 800      53747269 
+ 801              	.LASF47:
+ 802 00b8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 802      43313120 
+ 802      352E342E 
+ 802      31203230 
+ 802      31363036 
+ 803 00eb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 803      20726576 
+ 803      6973696F 
+ 803      6E203233 
+ 803      37373135 
+ 804 011e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 804      66756E63 
+ 804      74696F6E 
+ 804      2D736563 
+ 804      74696F6E 
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 17
+
+
+ 805              	.LASF14:
+ 806 0146 696E7431 		.ascii	"int16\000"
+ 806      3600
+ 807              	.LASF5:
+ 808 014c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 808      20756E73 
+ 808      69676E65 
+ 808      6420696E 
+ 808      7400
+ 809              	.LASF3:
+ 810 015e 73686F72 		.ascii	"short unsigned int\000"
+ 810      7420756E 
+ 810      7369676E 
+ 810      65642069 
+ 810      6E7400
+ 811              	.LASF38:
+ 812 0171 74656D70 		.ascii	"temperature_K_f\000"
+ 812      65726174 
+ 812      7572655F 
+ 812      4B5F6600 
+ 813              	.LASF20:
+ 814 0181 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 814      52784275 
+ 814      66666572 
+ 814      00
+ 815              	.LASF1:
+ 816 018e 756E7369 		.ascii	"unsigned char\000"
+ 816      676E6564 
+ 816      20636861 
+ 816      7200
+ 817              	.LASF21:
+ 818 019c 636F756E 		.ascii	"count_1\000"
+ 818      745F3100 
+ 819              	.LASF25:
+ 820 01a4 525F315F 		.ascii	"R_1_result\000"
+ 820      72657375 
+ 820      6C7400
+ 821              	.LASF40:
+ 822 01af 414D7578 		.ascii	"AMux_1_Start\000"
+ 822      5F315F53 
+ 822      74617274 
+ 822      00
+ 823              	.LASF12:
+ 824 01bc 75696E74 		.ascii	"uint16\000"
+ 824      313600
+ 825              	.LASF30:
+ 826 01c3 525F315F 		.ascii	"R_1_result_f\000"
+ 826      72657375 
+ 826      6C745F66 
+ 826      00
+ 827              	.LASF13:
+ 828 01d0 75696E74 		.ascii	"uint32\000"
+ 828      333200
+ 829              	.LASF50:
+ 830 01d7 6D61696E 		.ascii	"main\000"
+ 830      00
+ 831              	.LASF23:
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 18
+
+
+ 832 01dc 4C43445F 		.ascii	"LCD_write_counter\000"
+ 832      77726974 
+ 832      655F636F 
+ 832      756E7465 
+ 832      7200
+ 833              	.LASF39:
+ 834 01ee 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
+ 834      44656C53 
+ 834      69675F31 
+ 834      5F537461 
+ 834      727400
+ 835              	.LASF8:
+ 836 0201 756E7369 		.ascii	"unsigned int\000"
+ 836      676E6564 
+ 836      20696E74 
+ 836      00
+ 837              	.LASF45:
+ 838 020e 4C43445F 		.ascii	"LCD_Char_1_PrintU32Number\000"
+ 838      43686172 
+ 838      5F315F50 
+ 838      72696E74 
+ 838      5533324E 
+ 839              	.LASF10:
+ 840 0228 696E7433 		.ascii	"int32_t\000"
+ 840      325F7400 
+ 841              	.LASF19:
+ 842 0230 73697A65 		.ascii	"sizetype\000"
+ 842      74797065 
+ 842      00
+ 843              	.LASF28:
+ 844 0239 525F315F 		.ascii	"R_1_mV\000"
+ 844      6D5600
+ 845              	.LASF48:
+ 846 0240 6D61696E 		.ascii	"main.c\000"
+ 846      2E6300
+ 847              	.LASF17:
+ 848 0247 63686172 		.ascii	"char\000"
+ 848      00
+ 849              	.LASF42:
+ 850 024c 4C43445F 		.ascii	"LCD_Char_1_Position\000"
+ 850      43686172 
+ 850      5F315F50 
+ 850      6F736974 
+ 850      696F6E00 
+ 851              	.LASF24:
+ 852 0260 74686572 		.ascii	"thermistor_R\000"
+ 852      6D697374 
+ 852      6F725F52 
+ 852      00
+ 853              	.LASF2:
+ 854 026d 73686F72 		.ascii	"short int\000"
+ 854      7420696E 
+ 854      7400
+ 855              	.LASF33:
+ 856 0277 72617469 		.ascii	"ratio_f\000"
+ 856      6F5F6600 
+ 857              	.LASF11:
+ARM GAS  C:\Users\nickg\AppData\Local\Temp\ccLwIg19.s 			page 19
+
+
+ 858 027f 75696E74 		.ascii	"uint8\000"
+ 858      3800
+ 859              	.LASF36:
+ 860 0285 74686572 		.ascii	"thermistor_RB_f\000"
+ 860      6D697374 
+ 860      6F725F52 
+ 860      425F6600 
+ 861              	.LASF27:
+ 862 0295 74686572 		.ascii	"thermistor_mV\000"
+ 862      6D697374 
+ 862      6F725F6D 
+ 862      5600
+ 863              	.LASF4:
+ 864 02a3 6C6F6E67 		.ascii	"long int\000"
+ 864      20696E74 
+ 864      00
+ 865              	.LASF41:
+ 866 02ac 4C43445F 		.ascii	"LCD_Char_1_Start\000"
+ 866      43686172 
+ 866      5F315F53 
+ 866      74617274 
+ 866      00
+ 867              	.LASF18:
+ 868 02bd 6C6F6E67 		.ascii	"long double\000"
+ 868      20646F75 
+ 868      626C6500 
+ 869              	.LASF15:
+ 870 02c9 666C6F61 		.ascii	"float\000"
+ 870      7400
+ 871              	.LASF0:
+ 872 02cf 7369676E 		.ascii	"signed char\000"
+ 872      65642063 
+ 872      68617200 
+ 873              	.LASF44:
+ 874 02db 50696E5F 		.ascii	"Pin_1_Write\000"
+ 874      315F5772 
+ 874      69746500 
+ 875              	.LASF46:
+ 876 02e7 43794465 		.ascii	"CyDelay\000"
+ 876      6C617900 
+ 877              	.LASF49:
+ 878 02ef 433A5C55 		.ascii	"C:\\Users\\nickg\\OneDrive\\Documents\\PSoC Creator"
+ 878      73657273 
+ 878      5C6E6963 
+ 878      6B675C4F 
+ 878      6E654472 
+ 879 031d 5C546865 		.ascii	"\\Thermistor\\Thermistor_Project.cydsn\000"
+ 879      726D6973 
+ 879      746F725C 
+ 879      54686572 
+ 879      6D697374 
+ 880              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

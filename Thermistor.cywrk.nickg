@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1\ADC_DelSig_1.c">
+<ExpandedNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\TopDesign</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Pins</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Analog</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Clocks</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Interrupts</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\DMA</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\System</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Directives</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Flash Security</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\EEPROM</v>
+<v>Thermistor\Thermistor_Project\Header Files</v>
+<v>Thermistor\Thermistor_Project\Header Files\cyapicallbacks.h</v>
+<v>Thermistor\Thermistor_Project\Source Files</v>
+<v>Thermistor\Thermistor_Project\Source Files\main.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\AMux_1</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\TopDesign</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Pins</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Analog</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Clocks</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Interrupts</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\DMA</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\System</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Directives</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\Flash Security</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.cydwr\EEPROM</v>
+<v>Thermistor\Thermistor_Project\Header Files</v>
+<v>Thermistor\Thermistor_Project\Header Files\cyapicallbacks.h</v>
+<v>Thermistor\Thermistor_Project\Source Files</v>
+<v>Thermistor\Thermistor_Project\Source Files\main.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1\ADC_DelSig_1.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1\ADC_DelSig_1.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1\ADC_DelSig_1_INT.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1\ADC_DelSig_1_PM.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1_IRQ</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\ADC_DelSig_1_theACLK</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\AMux_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\AMux_1\AMux_1.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\AMux_1\AMux_1.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cy_boot</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\LCD_Char_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\LCD_Char_1_LCDPort</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\P3_0</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\P3_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\P3_2</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\Pin_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\Thermistor_1</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydevice.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cyfitter.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\cymetadata.c</v>
+<v>Thermistor\Thermistor_Project\Generated_Source\PSoC5\project.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\TopDesign</v>
+<v>Thermistor\Thermistor_Project\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\TopDesign</v>
+<v>Thermistor\Thermistor_Project\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\CortexM3</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_Ext_CP_Clk.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_INT.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_IRQ.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_PM.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_theACLK.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\AMux_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_1_LCDPort.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_1_PM.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\P3_0.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\P3_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\P3_2.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Thermistor_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Thermistor_Project.elf</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Thermistor_Project.hex</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Thermistor_Project.map</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.gpdsc</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.rpt</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\CortexM3</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_Ext_CP_Clk.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_INT.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_IRQ.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_PM.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_theACLK.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\AMux_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_1_LCDPort.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_1_PM.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\P3_0.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\P3_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\P3_2.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Thermistor_1.lst</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Thermistor_Project.elf</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Thermistor_Project.hex</v>
+<v>Thermistor\Thermistor_Project\CortexM3\ARM_GCC_541\Debug\Thermistor_Project.map</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.gpdsc</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project.rpt</v>
+<v>Thermistor\Thermistor_Project\Thermistor_Project_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\PSoC 5LP Architecture TRM</v>
+<v>Thermistor\Thermistor_Project\CY8C58LP Family Datasheet</v>
+<v>Thermistor\Thermistor_Project\System Reference Guides</v>
+<v>Thermistor\Thermistor_Project\System Reference Guides\cy_boot_v6_0</v>
+<v>Thermistor\Thermistor_Project\ADC_DelSig_v3_30.pdf</v>
+<v>Thermistor\Thermistor_Project\AMux_v1_80.pdf</v>
+<v>Thermistor\Thermistor_Project\CharLCD_v2_20.pdf</v>
+<v>Thermistor\Thermistor_Project\cy_pins_v2_20</v>
+<v>Thermistor\Thermistor_Project\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Thermistor\Thermistor_Project\Gnd_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\Power_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\Resistor_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\Thermistor_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\ThermistorCalc_v1_20.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Thermistor</v>
+<v>Thermistor\Thermistor_Project</v>
+<v>Thermistor\Thermistor_Project\PSoC 5LP Architecture TRM</v>
+<v>Thermistor\Thermistor_Project\CY8C58LP Family Datasheet</v>
+<v>Thermistor\Thermistor_Project\System Reference Guides</v>
+<v>Thermistor\Thermistor_Project\System Reference Guides\cy_boot_v6_0</v>
+<v>Thermistor\Thermistor_Project\ADC_DelSig_v3_30.pdf</v>
+<v>Thermistor\Thermistor_Project\AMux_v1_80.pdf</v>
+<v>Thermistor\Thermistor_Project\CharLCD_v2_20.pdf</v>
+<v>Thermistor\Thermistor_Project\cy_pins_v2_20</v>
+<v>Thermistor\Thermistor_Project\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Thermistor\Thermistor_Project\Gnd_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\Power_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\Resistor_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\Thermistor_v1_0.pdf</v>
+<v>Thermistor\Thermistor_Project\ThermistorCalc_v1_20.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs />
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
